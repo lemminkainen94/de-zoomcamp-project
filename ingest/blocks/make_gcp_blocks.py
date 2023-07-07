@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 from prefect_gcp import GcpCredentials
 from prefect_gcp.cloud_storage import GcsBucket
@@ -11,7 +12,7 @@ load_dotenv()
 BUCKET = os.getenv("BUCKET")
 
 credentials_block = GcpCredentials(
-    service_account_file='/home/wojtek/.gc/wojtek-de.json'
+    service_account_file="/home/wojtek/.gc/wojtek-de.json"
 )
 credentials_block.save("zoom-gcp-creds", overwrite=True)
 

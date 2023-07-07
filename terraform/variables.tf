@@ -4,11 +4,18 @@ locals {
 
 variable "project" {
   description = "Your GCP Project ID"
+  default = "velvety-setup-377621"
 }
 
 variable "region" {
   description = "Region for GCP resources. Choose as per your location: https://cloud.google.com/about/locations"
   default = "europe-west6"
+  type = string
+}
+
+variable "us_region" {
+  description = "Region for github archive resources. Choose as per your location: https://cloud.google.com/about/locations"
+  default = "US"
   type = string
 }
 
@@ -21,4 +28,10 @@ variable "BQ_DATASET" {
   description = "BigQuery Dataset that raw data (from GCS) will be written to"
   type = string
   default = "papers_and_code"
+}
+
+variable "BQ_US_DATASET" {
+  description = "BigQuery Dataset to store gh archive"
+  type = string
+  default = "gha"
 }
