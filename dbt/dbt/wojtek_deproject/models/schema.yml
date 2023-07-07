@@ -1,0 +1,73 @@
+
+version: 2
+
+
+sources:
+  - name: papers_and_code
+    description: "paperswithcode data combined with the linked repo information ingested from github arhives and REST API"
+    database: velvety-setup-377621
+    schema: papers_and_code
+    tables:
+        - name: paper_repo_deps
+        - name: paper
+        - name: paper_repo
+        - name: paper_repo_activity
+
+models:
+  - name: by_conference
+    description: "count of papers accepted at conferences, by conference name"
+    columns:
+      - name: proceeding
+        description: "conference proceedings"
+        tests:
+          - unique
+      - name: paper_count
+        description: "count of papers for the given conference"
+  - name: dl_framework_counts
+    description: "count of repos for each popular dl framework"
+    columns:
+      - name: dl_framework
+        description: "deep learning framework"
+        tests:
+          - unique
+      - name: repo_count
+        description: "count of repos for the framework"
+  - name: monthly_paper_with_repo_ratio
+    description: "count of papers, papers with repos and the ratio, month by month"
+    columns:
+      - name: month
+        tests:
+          - unique
+      - name: paper_count
+        description: "count of papers for the given month"
+      - name: paper_with_repo_count
+        description: "count of papers with repos for the given month"
+      - name: paper_with_repo_ratio
+        description: "monthly ratio"
+  - name: repo_actions
+    description: "count of push actions by month by repo - can you guess the conference it was submitted to by looking at the activity?"
+    columns:
+      - name: push_month
+        description: "month"
+      - name: repo
+        description: "repo name"
+      - name: push_count
+        description: "count of push actions"
+  - name: top_github_paper_publishers
+    description: "github users with the most papers published"
+    columns:
+      - name: github_user
+        tests:
+          - unique
+      - name: paper_count
+        description: "count of papers for the given gh user"
+  - name: top_libs_in_research
+    description: "most popular dependencies (libraries) from github research repos"
+    columns:
+      - name: repo_dep
+        description: "dependency (library) name"
+        tests:
+          - unique
+      - name: dep_count
+        description: "count of repos using the given dependency"
+  
