@@ -18,3 +18,25 @@ Main steps:
 ![Screenshot from 2023-07-07 09-16-40](https://github.com/lemminkainen94/de-zoomcamp-project/assets/17692760/38f60dcd-fd95-445f-afdc-4d87b9f9a7c2)
 ![Screenshot from 2023-07-07 09-16-02](https://github.com/lemminkainen94/de-zoomcamp-project/assets/17692760/d8c950b6-7639-4d07-884b-1a03ec1fc350)
 ![Screenshot from 2023-07-07 09-15-39](https://github.com/lemminkainen94/de-zoomcamp-project/assets/17692760/fbfb951d-740d-4edd-8151-92c5ba23afe3)
+
+
+# Install and Run
+The project uses poetry to manage dependencies and isort/black for style checks  
+To start, run: poetry init (if you don't have it, pip install poetry first)  
+
+You should also have your google cloud created and a cli access from your machine, e.g. via a service account.  
+I use a credentials json located in ~/.gh.  
+Also make sure you have terraform, docker and docker-compose installed, as well as a github token in ~/.gh  
+
+## terraform
+
+Go to terraform folder and follow the Readme file there.
+I've created a bucket for data ingestion from paperswithcode as well as two datasets: one for the target data wareousse, located in europe-west6, one in US, for github archive data.
+## Ingest with Prefect
+
+Run: bash orchestrate.sh
+This should spin up a prefect ui server, start a default prefect agent queue and deploy ingest/papers_to_bq.py
+I've set it up to run the ingestion dag daily.
+
+## dbt
+Go to the dbt folder and follow the instructions to setup and build the dbt project with docker compose.
