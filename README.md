@@ -15,6 +15,6 @@ Main steps:
 5. Then a dbt project picks up the data warehouse tables and builds a reporting dataset with models capturing interesting stats.
 6. Data loooker reports are created using the reporting dataset. Here are some visualizations created using the data warehouse:
 
-![Screenshot](Screenshot from 2023-07-07 09-16-40.png)
-![Screenshot](Screenshot from 2023-07-07 09-16-02.png)
-![Screenshot](Screenshot from 2023-07-07 09-15-39.png)
+![Screenshot from 2023-07-07 09-16-40](https://github.com/lemminkainen94/de-zoomcamp-project/assets/17692760/38f60dcd-fd95-445f-afdc-4d87b9f9a7c2)
+![Screenshot from 2023-07-07 09-16-02](https://github.com/lemminkainen94/de-zoomcamp-project/assets/17692760/d8c950b6-7639-4d07-884b-1a03ec1fc350)
+![Screenshot from 2023-07-07 09-15-39](https://github.com/lemminkainen94/de-zoomcamp-project/assets/17692760/fbfb951d-740d-4edd-8151-92c5ba23afe3)
