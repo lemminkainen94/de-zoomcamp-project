@@ -59,3 +59,8 @@ This is a quick guide on how to setup dbt with BigQuery on Docker.
     - to test your connection. This should output `All checks passed!` in the end.
     - **Note:** The automatic path conversion in Git Bash will cause the commands to fail with `--workdir` flag. It can be fixed by prefixing the path with `//` as is done above. The solution was found [here](https://github.com/docker/cli/issues/2204#issuecomment-638993192).
     - Also, we change the working directory to the dbt project because the `dbt_project.yml` file should be in the current directory. Else it will throw `1 check failed: Could not load dbt_project.yml`
+   
+    - Finally, you can develop your models and then build them using:
+      ```bash
+      docker compose run --workdir="//usr/app/dbt/taxi_rides_ny" dbt-bq-dtc build
+      ```
